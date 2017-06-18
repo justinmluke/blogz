@@ -59,4 +59,5 @@ def display_blog():
 
     return render_template('blog.html', blog=blog)
 
-app.run()
+if __name__ == '__main__':
+    app.run()
