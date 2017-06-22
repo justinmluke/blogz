@@ -1,19 +1,17 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block content %}  
+{% block content %}
+<h1>Blogs by {{user.username}}</h1>
 
-<h1>All Blogs</h1>
-
-         {% for blog in blogs %}
+{% for blog in blogs %}
         <a href='/blog?id={{blog.id}}'><h2>{{blog.title}}</h2></a>
         <p>{{blog.body}}</p>
         <form>
             <input type="hidden" name="blog-id" value="{{blog.id}}" />
         </form>
-        <h5> Written by <a href='/blog?user={{blog.author.id}}'>{{blog.author.username}}</a></h5>
+        <h5> Written by <a href='/blog?user={{user.id}}'>{{user.username}}</a></h5>
         <hr />
         {% endfor %}
-    
 
 
 {% endblock %}
